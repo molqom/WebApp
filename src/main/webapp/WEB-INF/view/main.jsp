@@ -9,7 +9,7 @@
 </c:if>
 <fmt:setBundle basename="resources" scope="session" />
 
-<html lang="${param.lang}">
+<html>
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/static/style/style.css">
 </head>
@@ -21,15 +21,17 @@
 <jsp:include page="parts/menu.jsp" />
 </div>
 <div class = "info"><fmt:message key="menu.main" />
-    <a href="?lang=ru">
-		<button class = "lang-button">Ru</button>
-	</a>
-	<form action="@" method="POST">
+
+	<button class = "lang-button" type="submit" formaction="#" formmethod="POST" value="ru">Ru</button>
+
+	<form action="#" method="POST">
 	    <select name="lang">
 	        <option value="ru">Ru</option>
 	        <option value="en">En</option>
 	    </select>
+	    <input type="submit" value="change" />
 	</form>
+	<h2>v1</h2>
 </div>
 </body>
 </html>

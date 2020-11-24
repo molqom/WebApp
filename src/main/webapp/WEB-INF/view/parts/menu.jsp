@@ -2,7 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<fmt:setBundle basename="resources" />
+<c:set var="current" value="${param.lang}" scope="session" />
+<c:if test="${not empty current}">
+    <fmt:setLocale value="${param.lang}"/>
+</c:if>
+<fmt:setBundle basename="resources" scope="session" />
 <div class="menu">
     <h3>Menu</h3>
     <ul>

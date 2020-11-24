@@ -12,10 +12,10 @@
 	</button>
 	</a>
 	<div id = "lang">
-	<a href="?lang=ru">
-		<button class = "lang-button">Ru</button>
-	</a>
-		<button class = "lang-button">En</button>
+	<form action = "#" method = "POST">
+		<button class = "lang-button" value = "ru">Ru</button>
+		<button class = "lang-button" value = "en">En</button>
+	</form>
 	</div>
 </div>
 
