@@ -1,24 +1,30 @@
 package by.epam.web.service;
 
-import by.epam.web.data.entity.Role;
-import by.epam.web.data.entity.User;
-import by.epam.web.data.repository.UserRepository;
+import by.epam.web.dao.DaoHelper;
+import by.epam.web.dao.DaoHelperFactory;
+import by.epam.web.dao.user.UserDao;
+import by.epam.web.entity.User;
+import by.epam.web.exception.DaoException;
+import by.epam.web.exception.ServiceException;
+
+import java.sql.SQLException;
 
 public class RegistrationService {
-    public boolean registration(String username, String password, String repeatPassword){
+    private DaoHelperFactory daoHelperFactory;
 
-        UserRepository repository = UserRepository.getInstance();
-
-        if(!password.equals(repeatPassword)){
-            return false;
-        }
-        else if (repository.isUsernameExist(username)){
-            return false;
-        }
-        else {
-            User user = new User(repository.size(), username, password, Role.USER);
-            repository.add(user);
-            return true;
+    public RegistrationService(DaoHelperFactory daoHelperFactory) {
+        this.daoHelperFactory = daoHelperFactory;
+    }
+    public void registration(String login,
+                             String password,
+                             String name,
+                             String surname) throws ServiceException {
+        User user = new User(login, password, name, surname);
+        try(DaoHelper daoHelper = daoHelperFactory.create()){
+            UserDao dao = daoHelper.createUserDao();
+            dao.save(user);
+        } catch (DaoException | SQLException e) {
+            throw new ServiceException(e.getMessage());
         }
     }
 }

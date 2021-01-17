@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-image: url("/WebApp/src/main/webapp/static/image/trainings.jpeg");
+            background-color: #cccccc;
+        }
+
+        #header {
+            background-color: rgba(0, 4, 117, .9);
+            color: #dbf8ff;
+            height: 60px;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        #header-name {
+            width: 350px;
+            min-width: 350px;
+            height: 100%;
+            font-size: 250%;
+            font-family: "Apple Braille";
+            text-align: center;
+        }
+
+        #logout {
+            position: absolute;
+            width: 15%;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+
+        #logout button {
+            height: 40%;
+            width: 60px;
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            color: #000475;
+            border: 0px solid #30c3fc;
+            border-radius: 5px;
+            background-color: #dbf8ff;
+        }
+
+        #logout button:hover {
+            background-color: #000475;
+            color: white;
+        }
+
+        #lang {
+            position: absolute;
+            top: 25%;
+            right: 15%;
+            height: 50%;
+            width: 100px;
+        }
+
+        #lang button {
+            top: 30%;
+            padding: 2px;
+            margin: 2px;
+            color: #000475;
+            border: 0 solid #30c3fc;
+            border-radius: 3px;
+            background-color: #dbf8ff;
+        }
+
+        #lang button:hover {
+            background-color: #000475;
+            color: white;
+        }
+
+        #menu {
+            position: absolute;
+            margin: 8px;
+            left: 0;
+            float: left;
+            border-radius: 10px;
+        }
+
+        .menu-ul {
+            /*list-style-type: none;*/
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #000475;
+            opacity: .9;
+            border-radius: 10px;
+        }
+
+        .menu-ul li a {
+            display: block;
+            color: #dbf8ff;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color on hover */
+        .menu-ul li a:hover {
+            background-color: blue;
+            color: white;
+            border-radius: 10px;
+        }
+
+        #info {
+            position: absolute;
+            width: 80%;
+            min-width: 300px;
+            right: 0;
+            background-color: #a6e6ff;
+            opacity: .963;
+            margin: 8px;
+            height: auto;
+            float: left;
+            border-radius: 10px;
+
+        }
+
+        #footer {
+            position: fixed;
+            background-color: floralwhite;
+            width: 100%;
+            text-align: center;
+            height: 30px;
+            bottom: 0;
+        }
+
+        .table {
+            text-align: left;
+            width: 80%;
+            margin: auto;
+            padding-bottom: 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            background-color: #cccccc;
+            color: #000475;
+            text-align: center;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .table td {
+            border: 1px solid deepskyblue;
+            background-color: beige;
+            width: 100px;
+            text-align: center;
+        }
+        .table td:hover {
+            background-color: bisque;
+        }
+
+        .lock-button {
+            width: 100px;
+            height: 30px;
+            background-color: red;
+            color: #dbf8ff;
+            border: 0;
+            border-radius: 5px;
+        }
+        .unlock-button {
+            width: 100px;
+            height: 30px;
+            background-color: lightgreen;
+            color: #dbf8ff;
+            border: 0;
+            border-radius: 5px;
+        }
+        .empty {
+            height: 100px;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div id="header">
+    <div id="header-name">Online trainings</div>
+    <div id="logout">
+        <button>Logout</button>
+    </div>
+    <div id="lang">
+        <form action="/WebApp/controller?command=localization" method="post">
+            <button name="lang" type="submit" value="ru">Ru</button>
+            <button name="lang" type="submit" value="en">En</button>
+            <button name="lang" type="submit" value="by">By</button>
+        </form>
+    </div>
+</div>
+<div id="content">
+    <div id="menu">
+        <ul class="menu-ul">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+    <div id="info">
+        <h2>Main information</h2>
+        <!--    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown pLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a grinter took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>-->
+
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>surname</th>
+                    <th>Feedback</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Alex</td>
+                    <td>Red</td>
+                    <td class="feedback">
+                        <!--                    <textarea>very long text</textarea>-->
+                        tjlfufj ugjlg jgjg jhgjhgljhgjhlg ljgjgljgkjglkjg klg kjgljhg jg ljg lkjglk jglkjg kjglkjg
+                        ljgjklg ljkg uj
+                    </td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Peter</td>
+                    <td>Parker</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11111</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Steve</td>
+                    <td>Jobs</td>
+                    <td class="feedback"></td>
+                    <td>
+                        <button class="lock-button">Lock</button>
+                    </td>
+                </tr>
+            </table>
+        <div class="empty">
+            <h3>Pages:</h3>
+        </div>
+
+    </div>
+</div>
+<div id="footer">All right reserved 2020</div>
+</body>
+</html>

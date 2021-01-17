@@ -3,35 +3,31 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<c:set var="current" value="${param.lang}" scope="session" />
+<c:set var="current" value="${sessionScope.lang}" scope="session"/>
 <c:if test="${not empty current}">
-    <fmt:setLocale value="${param.lang}"/>
+    <fmt:setLocale value="${sessionScope.lang}"/>
 </c:if>
-<fmt:setBundle basename="resources" scope="session" />
+<fmt:setBundle basename="resources" scope="session"/>
 
 <html>
 <head>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/static/style/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/style/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/style/cubestyle.css">
+    <title>Online trainings</title>
 </head>
 <body>
-<div class = "header">
-<jsp:include page="parts/header.jsp" />
-</div>
-<div class = "menu">
-<jsp:include page="parts/menu.jsp" />
-</div>
-<div class = "info"><fmt:message key="menu.main" />
+<jsp:include page="parts/header.jsp"/>
+<jsp:include page="parts/menu.jsp"/>
+<div class="info">
+    <h2><fmt:message key="main.welcome"/></h2>
+    <div id="cube">
+        <jsp:include page="parts/cube.jsp"/>
+    </div>
 
-	<button class = "lang-button" type="submit" formaction="#" formmethod="POST" value="ru">Ru</button>
 
-	<form action="#" method="POST">
-	    <select name="lang">
-	        <option value="ru">Ru</option>
-	        <option value="en">En</option>
-	    </select>
-	    <input type="submit" value="change" />
-	</form>
-	<h2>v1</h2>
+</div>
+<div id="footer">
+    <jsp:include page="parts/footer.jsp"/>
 </div>
 </body>
 </html>

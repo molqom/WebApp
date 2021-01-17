@@ -16,6 +16,15 @@
 
 <jsp:include page="parts/header.jsp" />
 <jsp:include page="parts/menu.jsp" />
-
+<div class="info">
+<ul>
+<c:forEach items="${courses}" var="course">
+    <li>${course.name}</li>
+</c:forEach>
+</ul>
+</div>
+<div id="footer">
+    <jsp:include page="parts/footer.jsp"/>
+</div>
 </body>
 </html>
